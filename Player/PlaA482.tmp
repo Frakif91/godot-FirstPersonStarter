@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdupkh0grwy27"]
+
+[ext_resource type="PackedScene" uid="uid://lqyku5wn2wo0" path="res://Player/MovementController.tscn" id="1_t1jcr"]
+[ext_resource type="PackedScene" uid="uid://0i75ta30bstu" path="res://Player/Head.tscn" id="2_41iu1"]
+[ext_resource type="Script" path="res://Player/Sprint.gd" id="3_bgqcu"]
+[ext_resource type="PackedScene" uid="uid://daq1qssmtl6hu" path="res://Player/Crosshair.tscn" id="4_8wmfj"]
+[ext_resource type="PackedScene" uid="uid://dpmtl208ef35x" path="res://3D/Animated_Pistol/Arm_n_Pistol.tscn" id="4_gpmee"]
+[ext_resource type="Script" path="res://3D/Animated_Pistol/Arm_n_Pistol.gd" id="5_u5nap"]
+[ext_resource type="AudioStream" uid="uid://cbtry4j1qtjra" path="res://Audio/SFX/weak_pistol.wav" id="7_3nbix"]
+
+[node name="Player" instance=ExtResource("1_t1jcr")]
+gravity_multiplier = 4.0
+speed = 6
+
+[node name="Sprint" type="Node" parent="." index="1"]
+script = ExtResource("3_bgqcu")
+sprint_speed = 8
+fov_multiplier = 1.1
+
+[node name="Head" parent="." index="2" instance=ExtResource("2_41iu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640268, 0)
+
+[node name="Arms" parent="Head" index="0" node_paths=PackedStringArray("Head", "Sprint") instance=ExtResource("4_gpmee")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.62027, 0.03)
+script = ExtResource("5_u5nap")
+Head = NodePath("..")
+Sprint = NodePath("../../Sprint")
+sprint_property = "sprinting"
+
+[node name="Control" parent="Head" index="2" instance=ExtResource("4_8wmfj")]
+
+[node name="PistolSound" type="AudioStreamPlayer" parent="Head" index="3"]
+stream = ExtResource("7_3nbix")

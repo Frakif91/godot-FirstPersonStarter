@@ -1,10 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8drbos167vf8"]
+[gd_scene load_steps=2 format=3 uid="uid://0i75ta30bstu"]
 
 [ext_resource type="Script" path="res://Player/Head.gd" id="1_enjfg"]
 
 [node name="Head" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0)
-script = ExtResource( "1_enjfg" )
+script = ExtResource("1_enjfg")
 
 [node name="Camera" type="Camera3D" parent="."]
 current = true

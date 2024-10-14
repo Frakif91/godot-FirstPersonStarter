@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxqki6anx3e87"]
+
+[ext_resource type="PackedScene" uid="uid://ctkc7yqdqdtao" path="res://Levels/Main/Geometry/Floor.tscn" id="1_r7glf"]
+[ext_resource type="Script" path="res://Levels/Main/L_Main.gd" id="1_yi1yy"]
+[ext_resource type="PackedScene" uid="uid://cdn7d5mxwdyks" path="res://Levels/Main/Geometry/Wall.tscn" id="2_7386u"]
+[ext_resource type="PackedScene" uid="uid://cylrlwovavyfp" path="res://Player/player_with_ak.tscn" id="3_lmfdc"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_xaygr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3eww8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_t5ash"]
+sky_material = SubResource("ProceduralSkyMaterial_3eww8")
+
+[sub_resource type="Environment" id="Environment_cwtq6"]
+background_mode = 2
+sky = SubResource("Sky_t5ash")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.9
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_yi1yy")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3869, 0.676682, 6.69011)
+navigation_mesh = SubResource("NavigationMesh_xaygr")
+
+[node name="Floor" parent="NavigationRegion3D" instance=ExtResource("1_r7glf")]
+transform = Transform3D(3.80595, 0, 0, 0, 1, 0, 0, 0, 3.56716, 15.3869, -0.676682, -6.69011)
+skeleton = NodePath("../..")
+
+[node name="Wall" parent="NavigationRegion3D" instance=ExtResource("2_7386u")]
+transform = Transform3D(3.87304, 0, 0, 0, 1.61081, 0, 0, 0, 1, 15.3869, 7.84155, -77.9835)
+skeleton = NodePath("../..")
+
+[node name="Wall2" parent="NavigationRegion3D" instance=ExtResource("2_7386u")]
+transform = Transform3D(3.87304, 0, 0, 0, 1.61081, 0, 0, 0, 1, 15.3869, 7.84155, 64.1105)
+skeleton = NodePath("../..")
+
+[node name="Wall3" parent="NavigationRegion3D" instance=ExtResource("2_7386u")]
+transform = Transform3D(-1.69296e-07, 0, 1, 0, 1.61081, 0, -3.87304, 0, -4.37114e-08, -61.0834, 7.84155, -5.39927)
+skeleton = NodePath("../..")
+
+[node name="Wall4" parent="NavigationRegion3D" instance=ExtResource("2_7386u")]
+transform = Transform3D(-1.69296e-07, 0, 1, 0, 1.61081, 0, -3.87304, 0, -4.37114e-08, 90.8382, 7.84155, -5.39927)
+skeleton = NodePath("../..")
+
+[node name="Node3D" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3869, -0.676682, -6.69011)
+
+[node name="Wall5" parent="NavigationRegion3D/Node3D" instance=ExtResource("2_7386u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7079, 4.56916, -15.7055)
+
+[node name="Wall6" parent="NavigationRegion3D/Node3D" instance=ExtResource("2_7386u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7079, 4.56916, 23.1597)
+
+[node name="Wall7" parent="NavigationRegion3D/Node3D" instance=ExtResource("2_7386u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50.12, 4.56916, 3.79171)
+
+[node name="Wall8" parent="NavigationRegion3D/Node3D" instance=ExtResource("2_7386u")]
+transform = Transform3D(-1.57716e-08, 0, 1, 0, 1, 0, -0.360812, 0, -4.37114e-08, 9.88985, 4.56916, 16.4903)
+
+[node name="Wall9" parent="NavigationRegion3D/Node3D" instance=ExtResource("2_7386u")]
+transform = Transform3D(-1.57716e-08, 0, 1, 0, 1, 0, -0.360812, 0, -4.37114e-08, 9.88985, 4.56916, -8.97249)
+
+[node name="Wall10" parent="NavigationRegion3D/Node3D" instance=ExtResource("2_7386u")]
+transform = Transform3D(0.187423, 0, 0, 0, -0.950387, -0.749712, 0, 1.6877, -0.422182, 45.9363, 4.38684, 3.17193)
+
+[node name="Floor2" parent="NavigationRegion3D" instance=ExtResource("1_r7glf")]
+transform = Transform3D(0.982799, 0, 0, 0, 1, 0, 0, 0, 0.233501, 45.3342, 9.50832, -18.1163)
+skeleton = NodePath("../..")
+
+[node name="Floor3" parent="NavigationRegion3D" instance=ExtResource("1_r7glf")]
+transform = Transform3D(0.804916, 0, 0, 0, 1, 0, 0, 0, 0.747849, 41.5853, 9.50832, 1.45862)
+skeleton = NodePath("../..")
+
+[node name="Lighting" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting"]
+environment = SubResource("Environment_cwtq6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 3.33829, 4.42492, 0.399336)
+shadow_enabled = true
+directional_shadow_max_distance = 250.0
+
+[node name="Player" parent="." instance=ExtResource("3_lmfdc")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -43.0384, 5.28494, 0)
+
+[node name="OmniLight3D" parent="Player/Head/Node3D/AK" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.558591, 0.0883667, -0.00973034)
+light_energy = 16.0
+light_size = 1.0
+light_specular = 1.0
+shadow_bias = 0.0
+omni_range = 10.0
+omni_attenuation = 1.0
+
+[editable path="Player"]
+[editable path="Player/Head/Node3D"]

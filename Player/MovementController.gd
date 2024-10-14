@@ -1,10 +1,10 @@
 extends CharacterBody3D
-class_name MovementController
 
+class_name MovementController
 
 @export var gravity_multiplier := 3.0
 @export var speed := 10
-@export var acceleration := 8
+@export var acceleration := 6
 @export var deceleration := 10
 @export_range(0.0, 1.0, 0.05) var air_control := 0.3
 @export var jump_height := 10

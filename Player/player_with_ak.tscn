@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cylrlwovavyfp"]
+
+[ext_resource type="PackedScene" uid="uid://lqyku5wn2wo0" path="res://Player/MovementController.tscn" id="1_g05k2"]
+[ext_resource type="Script" path="res://Player/Sprint.gd" id="2_7q3fb"]
+[ext_resource type="PackedScene" uid="uid://daq1qssmtl6hu" path="res://Player/Crosshair.tscn" id="3_digqr"]
+[ext_resource type="Script" path="res://Player/Head.gd" id="5_udd02"]
+[ext_resource type="PackedScene" uid="uid://dp3gqb8ovmeyb" path="res://Player/UI.tscn" id="6_trv7a"]
+[ext_resource type="PackedScene" uid="uid://dr1xnr84gbhjt" path="res://3D/SAS_wth_AK.tscn" id="8_wdrkh"]
+
+[node name="Player" instance=ExtResource("1_g05k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.985925, 0)
+gravity_multiplier = 4.0
+speed = 6
+
+[node name="Sprint" type="Node" parent="." index="1"]
+script = ExtResource("2_7q3fb")
+sprint_speed = 10
+fov_multiplier = 1.15
+
+[node name="Control" parent="." index="2" instance=ExtResource("3_digqr")]
+
+[node name="UI" parent="." index="3" instance=ExtResource("6_trv7a")]
+
+[node name="Head" type="Node3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640268, 0)
+script = ExtResource("5_udd02")
+
+[node name="Node3D" parent="Head" index="0" instance=ExtResource("8_wdrkh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.64027, 0)
+
+[node name="Camera" type="Camera3D" parent="Head" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+doppler_tracking = 1
+current = true
+near = 0.07

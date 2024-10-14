@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sjhkfxnp4txe"
+path="res://.godot/imported/637. Spring3.mp3-8543d13af7c28b5e70d42f2ed4b109a6.mp3str"
+
+[deps]
+
+source_file="res://3D/moving_statue/637. Spring3.mp3"
+dest_files=["res://.godot/imported/637. Spring3.mp3-8543d13af7c28b5e70d42f2ed4b109a6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
