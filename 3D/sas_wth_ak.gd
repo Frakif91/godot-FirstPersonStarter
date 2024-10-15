@@ -21,3 +21,6 @@ func try_to_shoot():
 		timer.start(time_between_shoot)
 		anim_player.stop()
 		anim_player.play("fire")
+
+func set_bind_angle(new_angle):
+	%Skeleton3D.set_bone_pose_rotation(2,new_angle)
