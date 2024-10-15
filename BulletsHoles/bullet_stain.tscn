@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmxqjf2hyif7q"]
+
+[ext_resource type="Script" path="res://BulletsHoles/bullet_stain.gd" id="1_6t0qo"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_g4fgb"]
+shading_mode = 0
+albedo_color = Color(1, 1, 0.356863, 1)
+texture_filter = 0
+point_size = 3.9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pa8q0"]
+material = SubResource("ORMMaterial3D_g4fgb")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.03
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_6t0qo")
+lifetime = 1.0
+speed = 15
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_pa8q0")

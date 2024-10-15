@@ -1,8 +1,11 @@
 extends Node3D
 
+@export_file("*.tscn") var bullet_stain_path
+
 @onready var fire_light : OmniLight3D = $"OmniLight3D"
 @onready var audio : AudioStreamPlayer3D = $"AudioStreamPlayer3D"
 @onready var audio2 : AudioStreamPlayer3D = $"AudioStreamPlayer3D2"
+@onready var bullet_stain : PackedScene = load(bullet_stain_path)
 var relay = false
 
 
@@ -23,6 +26,12 @@ func _shoot():
 		audio2.play()
 	relay = not relay
 	create_bullet_holes()
+	var b : Node3D = bullet_stain.instantiate()
+	if raycast.get_collider() and raycast.get_collider() != NPC:
+		#$"BulletStainSpawner".add_child(b)
+		get_tree().current_scene.add_child(b)
+		b.global_rotation = $"BulletStainSpawner".global_rotation
+		b.look_at(raycast.get_collision_point(),Vector3.UP)
 	await get_tree().create_timer(0.05).timeout
 	fire_light.light_energy = 0
 
@@ -60,6 +69,6 @@ func create_bullet_holes():
 	var b = bullet_hole.instantiate()
 	if raycast.get_collider() and raycast.get_collider() != NPC:
 		raycast.get_collider().add_child(b)
-		b.scale = Vector3.ONE / get_parent().scale
+		b.scale = (Vector3.ONE / get_parent().scale) * 3
 		b.global_transform.origin = raycast.get_collision_point()
 		b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
