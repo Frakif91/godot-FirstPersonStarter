@@ -28,8 +28,20 @@ script = ExtResource("5_udd02")
 [node name="Node3D" parent="Head" index="0" instance=ExtResource("8_wdrkh")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.64027, 0)
 
+[node name="Skeleton3D" parent="Head/Node3D/SAS/Sketchfab_model/root/GLTF_SceneRootNode/sas blue_85/GLTF_created_0" index="0"]
+bones/12/rotation = Quaternion(0.593388, -2.37027e-06, -1.58692e-07, 0.804917)
+bones/13/rotation = Quaternion(-0.279363, -0.0643074, -0.0948607, 0.953322)
+bones/34/rotation = Quaternion(1.04486e-07, -0.404308, -1.1518e-07, 0.914623)
+bones/35/rotation = Quaternion(1.52435e-07, -0.739749, -2.06572e-07, 0.672882)
+bones/41/rotation = Quaternion(0.317862, -0.372541, -0.128911, 0.862299)
+
+[node name="BoneAttachment3D" parent="Head/Node3D/SAS/Sketchfab_model/root/GLTF_SceneRootNode/sas blue_85/GLTF_created_0/Skeleton3D" index="5"]
+transform = Transform3D(-0.00904305, -0.999924, -0.00700614, 0.0124986, -0.00713745, 0.999888, -0.999881, 0.00895095, 0.0125594, 10.8678, -3.96659, 56.7048)
+
 [node name="Camera" type="Camera3D" parent="Head" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
 doppler_tracking = 1
 current = true
 near = 0.07
+
+[editable path="Head/Node3D"]
